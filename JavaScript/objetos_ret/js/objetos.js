@@ -67,7 +67,4 @@ class Trabajador extends Persona {
   }
 }
 
-let personaUno = new Persona("Carlos", "Frances", "carlos@carlos", 24);
-let trabajadorUno = new Trabajador("carlos", "tawdfs", "awee", 54, 40000, 14);
-trabajadorUno.mostrarDatos();
-trabajadorUno.calcularNetoMes(-0.02);
+
