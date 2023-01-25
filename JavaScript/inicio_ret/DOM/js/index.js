@@ -19,22 +19,25 @@ let lista2 = document.querySelector("#lista2");
 
 let select = document.querySelector("#select_lista");
 
-select.addEventListener("change", () => {
-  console.log(select.value);
+let texto = document.querySelector("#input_texto");
+
+select.addEventListener("change", (e) => {
+  opcion = e.target.value;
+  console.log(e.target);
 });
 
+function agregarDato(dato, lista) {
+  lista.innerHTML += `<li class='list-group-item'>${dato}</li>`;
+}
+
 botonAdd.addEventListener("click", (event) => {
-  //console.log("boton pulsado");
-  //<li>Elemento nuevo</li>
-  //lista1.innerHTML += '<li class="list-group-item">Elemento Prueba</li>';
-  let nodoLI = document.createElement("li");
-  nodoLI.textContent = "Elemento prueba";
-  //nodoLI.className ="list-group-item"
-  nodoLI.classList.add("list-group-item");
-  nodoLI.addEventListener("click", () => {
-    console.log("Ejemplo de cosa");
-  });
-  lista1.append(nodoLI);
+  if (input_texto.value != "") {
+    select.value == 1
+      ? agregarDato(input_texto.value, lista1)
+      : agregarDato(input_texto.value, lista2);
+  } else {
+    alert("Rellena el formulario");
+  }
 });
 
 botonBorrar.addEventListener("click", (event) => {
