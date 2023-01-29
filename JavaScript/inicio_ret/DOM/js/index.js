@@ -21,6 +21,9 @@ let select = document.querySelector("#select_lista");
 
 let texto = document.querySelector("#input_texto");
 
+let rowhtml = document.querySelector(".row").innerHTML;
+let row = document.querySelector(".row");
+
 select.addEventListener("change", (e) => {
   opcion = e.target.value;
   console.log(e.target);
@@ -47,3 +50,111 @@ botonBorrar.addEventListener("click", (event) => {
 /*elementosLi.forEach((element) => {
   console.log(element.innerHTML);
 });*/
+
+let profesores = [
+  {
+    nombre: "Fernando",
+    apellido: "Sánchez",
+    correo: "fernando@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion",
+        horas: 8,
+        siglas: "PRO",
+        ciclo: "DAM",
+        curso: 1,
+      },
+      {
+        nombre: "Bases de datos",
+        horas: 6,
+        siglas: "BD",
+        ciclo: "DAM",
+        curso: 1,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+  {
+    nombre: "Carlos",
+    apellido: "Sánchez",
+    correo: "carlos@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Entornos de Desarrollo",
+        horas: 3,
+        siglas: "ED",
+        ciclo: "DAM",
+        curso: 1,
+      },
+      {
+        nombre: "Sistemas de Gestion Empresarial",
+        horas: 3,
+        siglas: "SGE",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+  {
+    nombre: "Borja",
+    apellido: "Martin",
+    correo: "borja@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        horas: 8,
+        siglas: "PMDM",
+        ciclo: "DAM",
+        curso: 2,
+      },
+      {
+        nombre: "Desarrolo de Interfaces",
+        horas: 6,
+        siglas: "DI",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+];
+
+function crearCarta(div) {}
+
+profesores.forEach((profesor) => {
+  let nombre = profesor.nombre;
+  let apellido = profesor.apellido;
+  let correo = profesor.correo;
+  //crear una carta con los datos de cada profesor y colocarla en el row
+  row.innerHTML += `<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${nombre}</h5>
+    <h6 class="card-subtitle">${apellido}</h5>
+    <p class="card-text">${correo}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>`;
+
+  //foreach de las asignaturas item.asignaturas --> agregarlas en la ul
+  //document.create element para crear la ul
+  let nodoLista = document.createElement("ul");
+  let carta = document.querySelector("card");
+  nodoLista.innerHTML.append("ul");
+});
