@@ -133,6 +133,141 @@ let profesores = [
       console.log(this.asignaturas);
     },
   },
+  {
+    nombre: "Borja",
+    apellido: "Martin",
+    correo: "borja@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        horas: 8,
+        siglas: "PMDM",
+        ciclo: "DAM",
+        curso: 2,
+      },
+      {
+        nombre: "Desarrolo de Interfaces",
+        horas: 6,
+        siglas: "DI",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+  {
+    nombre: "Borja",
+    apellido: "Martin",
+    correo: "borja@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        horas: 8,
+        siglas: "PMDM",
+        ciclo: "DAM",
+        curso: 2,
+      },
+      {
+        nombre: "Desarrolo de Interfaces",
+        horas: 6,
+        siglas: "DI",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+  {
+    nombre: "Borja",
+    apellido: "Martin",
+    correo: "borja@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        horas: 8,
+        siglas: "PMDM",
+        ciclo: "DAM",
+        curso: 2,
+      },
+      {
+        nombre: "Desarrolo de Interfaces",
+        horas: 6,
+        siglas: "DI",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+  {
+    nombre: "Borja",
+    apellido: "Martin",
+    correo: "borja@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        horas: 8,
+        siglas: "PMDM",
+        ciclo: "DAM",
+        curso: 2,
+      },
+      {
+        nombre: "Desarrolo de Interfaces",
+        horas: 6,
+        siglas: "DI",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
+  {
+    nombre: "Borja",
+    apellido: "Martin",
+    correo: "borja@gmail.com",
+    asignaturas: [
+      {
+        nombre: "Programacion Multimedia y Dispositivos Moviles",
+        horas: 8,
+        siglas: "PMDM",
+        ciclo: "DAM",
+        curso: 2,
+      },
+      {
+        nombre: "Desarrolo de Interfaces",
+        horas: 6,
+        siglas: "DI",
+        ciclo: "DAM",
+        curso: 2,
+      },
+    ],
+    mostrarDatos: function () {
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.correo);
+      console.log(this.asignaturas);
+    },
+  },
 ];
 
 function crearCarta(div) {}
@@ -141,20 +276,49 @@ profesores.forEach((profesor) => {
   let nombre = profesor.nombre;
   let apellido = profesor.apellido;
   let correo = profesor.correo;
+  //capturar cada asignatura del profesor en cuestion
+  let subjects = [];
+  profesor.asignaturas.forEach((asignatura) => {
+    subjects.push(asignatura.nombre)
+  })
+  //transformar las asignaturas en elementos <li>
+  let asignaturasTexto=""
+  subjects.forEach((asignatura) => {
+    asignaturasTexto+=`<li>`+asignatura+`</li>`;
+  })
+  function agregarUl(){
+    let nuevoUl = document.createElement("ul")
+    subjects.forEach((asignatura) => {
+    let nuevoLi= document.createElement("li");
+    nuevoLi.appendChild(document.createTextNode(asignatura));
+    nuevoUl.appendChild(nuevoLi);
+    })
+  let card = document.querySelector(".card-text");
+  document.appendChild(nuevoUl);
+  }
+  
   //crear una carta con los datos de cada profesor y colocarla en el row
   row.innerHTML += `<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${nombre}</h5>
+    <h6 class="card-subtitle">${apellido}</h5>
+    <p class="card-text">${correo}</p>`+
+    asignaturasTexto//añadir elementos al html
+    +`<ul class="card-ul">
+    </ul>
+  </div>
+</div>`;
+/*row.innerHTML += `<div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${nombre}</h5>
     <h6 class="card-subtitle">${apellido}</h5>
     <p class="card-text">${correo}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-</div>`;
+</div>`;*/
 
-  //foreach de las asignaturas item.asignaturas --> agregarlas en la ul
+  /*//foreach de las asignaturas item.asignaturas --> agregarlas en la ul
   //document.create element para crear la ul
   let nodoLista = document.createElement("ul");
   let carta = document.querySelector("card");
-  nodoLista.innerHTML.append("ul");
+  nodoLista.innerHTML.append("ul");*/
 });
