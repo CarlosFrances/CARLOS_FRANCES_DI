@@ -58,12 +58,22 @@ fetch("https://dummyjson.com/products/categories")
 
 let categorias = document.querySelectorAll("select");
 categorias[0].addEventListener("change",(e) =>{
-    console.log(e.target.value);
     fetch(`https://dummyjson.com/products/category/${e.target.value}`)
     .then((ok) => ok.json())
     .then((ok1) => {
         ok1.products.forEach((element) => {
             categorias[1].innerHTML+=`<option>${element.title}</option>`;
         });
-    });
+    }).catch((err) => {
+        console.log(err);
+    }).then(console.log("yessss"));
 });
+
+let div = document.querySelector("div");
+categorias[1].addEventListener("change",(e) => {
+    div.innerHTML+=`<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${e.target.value}</h5>
+    </div>
+  </div>`
+})
