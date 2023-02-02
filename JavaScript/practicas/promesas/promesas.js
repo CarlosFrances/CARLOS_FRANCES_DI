@@ -47,9 +47,10 @@ fetch("https://dummyjson.com/products")
 let urlProductos = "https://dummyjson.com/products/category/";
 let selectCategorias = document.querySelector("select");
 let filaCartas = document.querySelectorAll(".row .row")[1];
-
+let categoriaSeleccionada;
 selectCategorias.addEventListener("change", (e) => {
   consultarProductos(e.target.value);
+  categoriaSeleccionada=e.target.value;
 });
 
 let listaCarrito=document.getElementById("lista_carrito");
@@ -59,7 +60,7 @@ let lista="";
 let total=0;
 let totalCompras=0;
 function agregarALista(title,price){
-    lista+=`<p style="text-align: center;">${title}  $${price}</p>`;
+    lista+=`<p>${title}  $${price}</p>`;
     if(ver)listaCarrito.innerHTML=lista;
     total+=price;
     totalCarrito.innerHTML=`<div class="col-8"><h2>Total: $${total}</h2></div>`;
@@ -67,7 +68,7 @@ function agregarALista(title,price){
     numeroCompras.innerHTML=totalCompras;
 }
 
-function consultarProductos(categoria) {
+function consultarProductos(categoria,precio) {
   filaCartas.innerHTML = "";
   fetch(urlProductos + categoria)
     .then((ok) => {
@@ -78,9 +79,28 @@ function consultarProductos(categoria) {
         let con=0;
         let elements=[]
       ok1.products.forEach((element) => {
-        //console.log(element.title);
-        // pintar cada carta en el innerHTML de la row
-        elements.push(element)
+        if(!isNaN(precio)){
+          if(element.price <= precio){
+            console.log("entra"+precio);
+          elements.push(element)
+          filaCartas.innerHTML += `<div class="col">
+              <div class="card" style="width: 18rem">
+                <img src="${element.images[0]}" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">${element.title}</h5>
+                  <h6 class="card-title">$${element.price}</h6>
+                  <p class="card-text">
+                   ${element.description}
+                  </p>
+                  <button class="btn btn-primary" id="boton${con}">Agregar a carrito</button>
+                </div>
+              </div>
+            </div>`;
+            con++;
+          }         
+        }else{
+          console.log("no entra");
+          elements.push(element)
         filaCartas.innerHTML += `<div class="col">
               <div class="card" style="width: 18rem">
                 <img src="${element.images[0]}" class="card-img-top" alt="..." />
@@ -95,6 +115,7 @@ function consultarProductos(categoria) {
               </div>
             </div>`;
             con++;
+        }        
       });
       for (let index = 0; index < con; index++) {
         let element = document.getElementById(`boton${index}`);
@@ -139,6 +160,20 @@ botonVerLista.addEventListener("click",(e) => {
         ver=true;
     }
 })
+
+//boton de filtrar e input de filtrado
+let botonFiltrar = document.querySelector("button");
+let filtrado = document.querySelector("input");
+let filtro;
+
+filtrado.addEventListener("change",(e) => {
+  filtro=e.target.value;
+});
+
+botonFiltrar.addEventListener("click",(e) => {
+  console.log("holi"+filtro);
+  consultarProductos(categoriaSeleccionada,filtro);
+});
 
 fetch("https://dummyjson.com/products/categories")
   .then((ok) => ok.json())
