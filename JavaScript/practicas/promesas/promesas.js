@@ -79,9 +79,8 @@ function consultarProductos(categoria,precio) {
         let con=0;
         let elements=[]
       ok1.products.forEach((element) => {
-        if(!isNaN(precio)){
+        if(!isNaN(precio) && precio >0){
           if(element.price <= precio){
-            console.log("entra"+precio);
           elements.push(element)
           filaCartas.innerHTML += `<div class="col">
               <div class="card" style="width: 18rem">
@@ -99,7 +98,6 @@ function consultarProductos(categoria,precio) {
             con++;
           }         
         }else{
-          console.log("no entra");
           elements.push(element)
         filaCartas.innerHTML += `<div class="col">
               <div class="card" style="width: 18rem">
@@ -167,11 +165,11 @@ let filtrado = document.querySelector("input");
 let filtro;
 
 filtrado.addEventListener("change",(e) => {
-  filtro=e.target.value;
+  let fil = e.target.value;
+  filtro=fil
 });
 
 botonFiltrar.addEventListener("click",(e) => {
-  console.log("holi"+filtro);
   consultarProductos(categoriaSeleccionada,filtro);
 });
 
