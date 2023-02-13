@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="row" style="margin-top:50px;">
+                <h2>Buscador de noticias</h2>
+            </div>
+            <!-- formulario  noticias-->
+            <div class="row">
+                <input type="text" placeholder="Introduce noticia..." class="col-4" id="formulario_texto">
+                <input type="text" placeholder="Introduce cantidad de noticias a cargar..." class="col-4"
+                    id="formulario_numero">
+                <button class="btn btn-info col-4" id="formulario_boton">Buscar noticias</button>
+            </div>
+            <!-- formulario categoria -->
+            <div class="row" style="margin-top:50px;">
+                <select class="form-control col" id="categorias_select">
+                    <option>sport</option>
+                    <option>science</option>
+                    <option>technology</option>
+                </select>
+                <button class="btn btn-info col" id="categorias_boton">Buscar por categoria</button>
+            </div>
+            <!-- cartas -->
+            <div class="row" style="padding:30px;" id="cartas">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script src="js/pagina2.js"></script>
+
+</html>

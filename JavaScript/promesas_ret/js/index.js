@@ -48,6 +48,22 @@
         console.log("Conexion incorrecta");
 });*/
 
+// selectores
+
+// document.querySelector --> HTMLElement -> Button --> Primera ocurrendcia
+// document.querySelectorAll --> Nodelist -> List<Button> --> Lista completa de elementos
+
+//let boton = document.querySelector("button"); busca un elemento de tipo button
+//let boton = document.querySelector("#boton_borrar"); busca un elemento con el id boton_borrar
+//let boton = document.querySelector(".btn"); busca un elemento de clase boton
+//let lista = document.querySelector("ul.elemento") busca un elemento de tipo ul con clase elemento
+//let lista = document.querySelector("div.container ul.elemento") busca un elemento div de clase container que tenga dentro un elemento ul de clase elemento
+//let elementosLi = document.querySelector("ul").querySelectorAll("li"); busca todos los li dentro de el primer elemento ul
+//let elementosLi = document.querySelectorAll("ul.elemento li"); //busca todos los li dentro de un elemento ul de clase elemento
+/*https://content.guardianapis.com/search?api-key=f7654c56-99cf-4770-9e4e-c14e1a2ecbba&amp;q={palabra} &amp;page-size={resultados}*/
+//https://content.guardianapis.com/search?api-key=f7654c56-99cf-4770-9e4e-c14e1a2ecbba&amp;q={covid}%20&amp;page-size={2}
+//https://content.guardianapis.com/search?api-key=f7654c56-99cf-4770-9e4e-c14e1a2ecbba&amp&amp;section={sport}
+
 fetch("https://dummyjson.com/products/categories")
 .then((ok) => ok.json())
 .then((ok1) => {
