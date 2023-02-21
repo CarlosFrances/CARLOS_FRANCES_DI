@@ -1,0 +1,10 @@
+<h2>Componente uno</h2>
+<p>Componente generado desde cli</p>
+<input type="number" #botonset (change)="botonesSet(botonset.value)">
+<button class="btn btn-primary" (click)="botonesSet(botonset.value)">set</button>
+<button class="btn btn-primary" (click)="botones(1)">Incrementar</button>
+<button class="btn btn-primary" (click)="botones(-1)">Decrementar</button>
+<button class="btn btn-primary" (click)="botones(0)">Resetear</button>
+<div class="m-4">
+    <span>{{contador}}</span>
+</div>

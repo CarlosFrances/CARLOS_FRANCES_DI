@@ -1,0 +1,12 @@
+<h1>Directiva if</h1>
+<p>Esto es un ejemplo de como funciona la directiva if</p>
+<p>El valor actual de la variable es:{{mostrar}}</p> <!-- union grafico-logica -->
+<button (click)="mostrar = !mostrar">Cambiar valor</button> <!-- union logico-grafica -->
+
+<ng-container *ngIf="expression; then thenTemplate; else elseTemplate"></ng-container>
+<ng-template #thenTemplate>
+
+</ng-template>
+<ng-template #elseTemplate>
+
+</ng-template>

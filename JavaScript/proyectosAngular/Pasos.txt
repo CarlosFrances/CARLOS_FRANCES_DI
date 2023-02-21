@@ -1,0 +1,15 @@
+-proyecto angular-
+
+crear proyecto
+en cmd:	   
+ng new directivas --skip-tests --prefix directivas (directivas es el nombre del prefijo)
+yes
+css
+npm install (descarga librerias)
+
+levantar proyecto
+dentro de la ruta del proyecto:
+npm start
+
+crear componentes:
+ng g c components/directivaif
