@@ -12,4 +12,4 @@ dentro de la ruta del proyecto:
 npm start
 
 crear componentes:
-ng g c components/directivaif
+ng g c components/directivaif (directivaif es el nombre del componente)
