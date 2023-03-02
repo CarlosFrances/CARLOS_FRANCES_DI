@@ -3,10 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DirectivaifComponent } from './components/directivaif/directivaif.component';
+import { DirectivaswitchComponent } from './components/directivaswitch/directivaswitch.component';
+import { UnoComponent } from './components/uno/uno.component';
+import { DosComponent } from './components/dos/dos.component';
+import { TresComponent } from './components/tres/tres.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DirectivaifComponent,
+    DirectivaswitchComponent,
+    UnoComponent,
+    DosComponent,
+    TresComponent
   ],
   imports: [
     BrowserModule,
