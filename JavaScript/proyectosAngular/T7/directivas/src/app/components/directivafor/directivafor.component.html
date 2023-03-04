@@ -1,0 +1,37 @@
+<h1>Directica for</h1>
+<p> Directiva que permite recuperar elementos de una coleccion y repetir un bloque html con dichos elementos</p>
+
+<div class="row">
+  <div class="col">
+    <input type="text" placeholder="Nombre..." #input>
+    <button class="btn btn-primary" (click)="agregar(input.value)">Agregar</button>
+    <ul>
+      <li *ngFor="let item of coleccionElementos; let i=index">
+        {{item}}
+      </li>
+      <!-- Repite este elemento y por cada repeticion utiliza la iteracion de una coleccion -->
+    </ul>
+  </div>
+  <div class="col">
+
+    <p>Contiene {{texto}} veces</p>
+    <input type="number" placeholder="Filtro..." #inputFiltro>
+    <button class="btn btn-primary" (click)="filtrar(inputFiltro.value)">Filtrar</button>
+    <ng-container *ngIf="!filtrando; else elseTemplate">
+
+    </ng-container>
+    <ng-template #elseTemplate>
+      <div class="alert alert-primary" role="alert">
+        Contiene el numero {{coleccionFiltrada.length}} veces
+      </div>
+    </ng-template>
+
+
+    <ul>
+      <li *ngFor="let item of coleccionFiltrada; let i=index">
+        {{item}}
+      </li>
+      <!-- Repite este elemento y por cada repeticion utiliza la iteracion de una coleccion -->
+    </ul>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { DirectivaswitchComponent } from './components/directivaswitch/directiva
 import { UnoComponent } from './components/uno/uno.component';
 import { DosComponent } from './components/dos/dos.component';
 import { TresComponent } from './components/tres/tres.component';
+import { DirectivaforComponent } from './components/directivafor/directivafor.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TresComponent } from './components/tres/tres.component';
     DirectivaswitchComponent,
     UnoComponent,
     DosComponent,
-    TresComponent
+    TresComponent,
+    DirectivaforComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,56 @@
+<div class="row" style="padding:100px;">
+  <div class="col">
+    <div class="input-group">
+      <select class="form-control" #curso>
+        <option *ngFor="let item of asignaturas">{{item.curso}}</option>
+      </select>
+      <select class="form-control" #ciclo>
+        <option *ngFor="let item of asignaturas">{{item.ciclo}}</option>
+      </select>
+      <button class="btn btn-primary" (cilck)="filtrarAsignaturas(ciclo.value,curso.value)">Buscar</button>
+    </div>
+    <div class="input-group">
+      <div class="row" style="margin-top:50px;">
+        <div class="col">
+          <input type="text" placeholder="Conocimientos" #conocimientos />
+          <button class="btn btn-primary" (click)="filtrarConocimientos(conocimientos.value)">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS79Q7tucsy4LjZJd89yDZCqHTVQkfJ_qnNow&usqp=CAU -->
+  <div class="container" style="margin-top:100px;">
+    <div class="row">
+      <ng-container *ngIf="!buscando; then thenTemplate; else elseTemplate"></ng-container>
+      <ng-template #thenTemplate>
+        <div *ngFor="let item of asignaturas" class="col" style="margin-bottom:20px;">
+          <div class="card" style="width: 18rem;">
+            <ng-container *ngIf="item.imagen.length > 0; else elseTemplate">
+              <img [src]="item.imagen" class="card-img-top">
+            </ng-container>
+            <ng-template #elseTemplate>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS79Q7tucsy4LjZJd89yDZCqHTVQkfJ_qnNow&usqp=CAU"
+                class="card-img-top">
+            </ng-template>
+
+
+            <div class="card-body">
+              <h5 class="card-title">{{item.nombre}}</h5>
+              <h6 class="card-text">{{item.curso}}</h6>
+              <h6 class="card-text">{{item.ciclo}}</h6>
+              <h6 class="card-text" *ngFor="let conocimiento of item.conocimientos">{{conocimiento}}</h6>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #elseTemplate>
+
+      </ng-template>
+
+    </div>
+  </div>
+
+</div>
