@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-alumnos.component.css']
 })
 export class AppAlumnosComponent {
+  opcion: number = 0;
 
+  cambioRadio(evento: any) {
+    this.opcion = Number(evento.target.value)
+  }
 }

@@ -1,0 +1,43 @@
+<div class="container" style=" width:30%;margin-top: 5%;">
+  <input type="text" placeholder="Nombre del alumno..." class="form-control" style="margin-bottom:2%;" #nombre />
+  <input type="text" placeholder="Apellido del alumno..." class="form-control" style="margin-bottom:2%;" #apellido />
+  <input type="number" min="15" max="99" placeholder="Edad del alumno..." class="form-control"
+    style="margin-bottom:10%;" #edad />
+
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" value="1" #radio1
+      (change)="cambioRadio($event)" />
+    <label class="form-check-label" for="FP">FP</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" value="2" #radio2
+      (change)="cambioRadio($event)" />
+    <label class="form-check-label" for="Universidad">Universidad</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" value="3" #radio3
+      (change)="cambioRadio($event)" />
+    <label class="form-check-label" for="Bachiller">Bachiller</label>
+  </div>
+
+  <select class="form-control" style="margin-top: 10%;">
+    <option>DAM</option>
+    <option>DAW</option>
+    <option>ASIR</option>
+  </select>
+
+  <div class="input-group" style="margin-top: 10%;">
+    <select class="form-control"></select>
+    <button class="btn btn-primary">Confirmar</button>
+  </div>
+
+  <!--<div [ngSwitch]="opcion" style="margin-top:10%;">
+    <h2 *ngSwitchCase="1">Numero de alumnos en FP: </h2>
+    <h2 *ngSwitchCase="2">Numero de alumnos en Universidad: </h2>
+    <h2 *ngSwitchCase="3">Numero de alumnos en Bachller: </h2>
+    <div *ngSwitchDefault class="alert alert-primary" role="alert">
+      Por favor selecciona estudios
+    </div>
+  </div>-->
+
+</div>

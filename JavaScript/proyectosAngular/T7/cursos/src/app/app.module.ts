@@ -3,18 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppComponentComponent } from './components/app-component/app-component.component';
-import { AppCursosComponent } from './components/app-cursos/app-cursos.component';
-import { AppAlumnosComponent } from './components/app-alumnos/app-alumnos.component';
-import { AppAsignaturasComponent } from './components/app-asignaturas/app-asignaturas.component';
+import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { AsignaturasComponent } from './components/asignaturas/asignaturas.component';
+import { CiclosComponent } from './components/ciclos/ciclos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppComponentComponent,
-    AppCursosComponent,
-    AppAlumnosComponent,
-    AppAsignaturasComponent
+    AlumnosComponent,
+    AsignaturasComponent,
+    CiclosComponent
   ],
   imports: [
     BrowserModule,

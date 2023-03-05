@@ -6,9 +6,6 @@ import { AsignaturaInterfaz } from '../model/asignatura_interfaz';
 })
 export class AsignaturasService {
   ciclos: string[] = ['DAM', 'DAW', 'ASIR', 'TODOS'];
-  universidad: string[] = ["ING", "PSI", "EF", "TODOS"];
-  bachiller: string[] = ["ECO", "BIO", "HIS", "TODOS"];
-
   asignturas: AsignaturaInterfaz[] = [
     {
       nombre: 'Progmacion Multimedia',
@@ -116,14 +113,6 @@ export class AsignaturasService {
 
   getAllCiclos(): string[] {
     return this.ciclos;
-  }
-
-  getAllUniversidad(): string[] {
-    return this.universidad;
-  }
-
-  getAllBachiller(): string[] {
-    return this.bachiller;
   }
 
   getAllAsignaturas(): AsignaturaInterfaz[] {
