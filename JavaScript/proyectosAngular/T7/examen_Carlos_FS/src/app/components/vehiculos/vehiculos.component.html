@@ -1,0 +1,72 @@
+<div class="container" style="margin-top:5%;">
+  <ng-container *ngIf="tipo=='utilitario'; else elseTemplate">
+    <div class="container">
+      <div *ngFor="let item of vehiculos" class="col">
+        <div class="card" style="width: 18rem;">
+          <ng-container *ngIf="item.imagen==''; else elseTemplate">
+            <img
+              src="https://media.architecturaldigest.com/photos/61e70371c830527fda2b5c82/16:9/w_2991,h_1682,c_limit/Mercedes-EQXX-1%20%5BMercedes-Benz%5D%20copy.jpg"
+              class="card-img-top" alt="...">
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img src="{{item.imagen}}" class="card-img-top" alt="...">
+          </ng-template>
+
+
+          <div class="card-body">
+            <h5 class="card-title">Nombre: {{item.nombre}}</h5>
+            <p class="card-text">Marca: {{item.marca}}</p>
+            <p class="card-text">Caballos: {{item.cv}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="container">
+      <div *ngFor="let item of vehiculos" class="col">
+        <div class="card" style="width: 18rem;">
+          <ng-container *ngIf="item.imagen==''; else elseTemplate">
+            <img
+              src="https://media.architecturaldigest.com/photos/61e70371c830527fda2b5c82/16:9/w_2991,h_1682,c_limit/Mercedes-EQXX-1%20%5BMercedes-Benz%5D%20copy.jpg"
+              class="card-img-top" alt="...">
+          </ng-container>
+          <ng-template #elseTemplate>
+            <img src="{{item.imagen}}" class="card-img-top" alt="...">
+          </ng-template>
+          <div class="card-body">
+            <h5 class="card-title">Nombre: {{item.nombre}}</h5>
+            <p class="card-text">Marca: {{item.marca}}</p>
+            <p class="card-text">Caballos: {{item.cv}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<ng-container *ngIf="tipo=='Todos'; else elseTemplate">
+  <div class="container">
+    <div *ngFor="let item of vehiculos" class="col">
+      <div class="card" style="width: 18rem;">
+        <ng-container *ngIf="item.imagen==''; else elseTemplate">
+          <img
+            src="https://media.architecturaldigest.com/photos/61e70371c830527fda2b5c82/16:9/w_2991,h_1682,c_limit/Mercedes-EQXX-1%20%5BMercedes-Benz%5D%20copy.jpg"
+            class="card-img-top" alt="...">
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img src="{{item.imagen}}" class="card-img-top" alt="...">
+        </ng-template>
+
+
+        <div class="card-body">
+          <h5 class="card-title">Nombre: {{item.nombre}}</h5>
+          <p class="card-text">Marca: {{item.marca}}</p>
+          <p class="card-text">Caballos: {{item.cv}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+
+</ng-template>

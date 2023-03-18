@@ -1,0 +1,20 @@
+<div class="row" style="margin-top:5%;">
+  <button #botonDeportes (click)="sacarNoticias('sport')" class="btn btn-primary col"
+    style="margin-left:3%;margin-right:3%">Deportes</button>
+  <button #botonWorld (click)="sacarNoticias('world')" class="btn btn-info col"
+    style="margin-left:3%;margin-right:3%">world</button>
+  <button #botonEconomia class="btn btn-success col" style="margin-left:3%;margin-right:3%">Economia</button>
+  <button #botonPolitica class="btn btn-warning col" style="margin-left:3%;margin-right:3%">Politica</button>
+</div>
+<div class="row" style="margin-top:5%;">
+  <div *ngFor="let item of noticiasFiltradas">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{item.webTitle}}</h5>
+        <p class="card-text">{{item.webPublicationDate}}</p>
+        <a href="{{item.webUrl}}" class="btn btn-primary">Ver noticia</a>
+        <button class="btn btn-info" (click)="pasarNoticia(item)">Detalles</button>
+      </div>
+    </div>
+  </div>
+</div>

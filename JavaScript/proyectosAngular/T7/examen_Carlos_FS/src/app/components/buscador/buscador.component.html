@@ -1,0 +1,39 @@
+<div class="row input-group" style="margin-top: 2%;">
+  <input #marca class="form-control" placeholder="marca" />
+  <input #cv class="form-control" placeholder="cv" />
+  <button class="btn btn-primary form-control" (click)="buscarVehiculos(marca.value, cv.value)">Buscar</button>
+  <div style="margin-top:5%">
+    <ng-container *ngIf="buscado; else elseTemplate">
+      <div *ngFor="let item of vehiculos">
+        <div class="container">
+          <div class="alert alert-primary" role="alert">
+            Se ha encontrado {{vehiculos.length}} coche con estas características
+          </div>
+          <div *ngFor="let item of vehiculos">
+            <div class="card" style="width: 18rem;">
+              <ng-container *ngIf="item.imagen==''; else elseTemplate">
+                <img
+                  src="https://media.architecturaldigest.com/photos/61e70371c830527fda2b5c82/16:9/w_2991,h_1682,c_limit/Mercedes-EQXX-1%20%5BMercedes-Benz%5D%20copy.jpg"
+                  class="card-img-top" alt="...">
+              </ng-container>
+              <ng-template #elseTemplate>
+                <img src="{{item.imagen}}" class="card-img-top" alt="...">
+              </ng-template>
+              <div class="card-body">
+                <h5 class="card-title">Nombre: {{item.nombre}}</h5>
+                <p class="card-text">Marca: {{item.marca}}</p>
+                <p class="card-text">Caballos: {{item.cv}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <ng-template #elseTemplate>
+    <div class="alert alert-primary" role="alert">
+      No se ha buscado aun
+    </div>
+  </ng-template>
+
+</div>
